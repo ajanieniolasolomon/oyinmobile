@@ -1,0 +1,25 @@
+<ion-header>
+    <ion-navbar>
+        <ion-buttons start>
+            <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+        </ion-buttons>
+        <ion-title>Course</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="card-background-page">
+
+    <ion-card *ngFor="let item of items | async">
+        <img src="https://ionicframework.com/dist/preview-app/www/assets/img/card-saopaolo.png" />
+        <div class="card-title">{{item.course}}</div>
+        <div class="card-subtitle"><button ion-button (click)="taketest(item.uid)">take test</button></div>
+    </ion-card>
+
+
+
+
+
+
+</ion-content>

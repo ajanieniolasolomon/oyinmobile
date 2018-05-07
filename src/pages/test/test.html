@@ -1,0 +1,62 @@
+<!--
+  Generated template for the TestPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar>
+        <ion-title>Questions</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <form (ngSubmit)="endexam()" [formGroup]="formgroup">
+
+        <div *ngFor="let item of items | async; let i = index">
+            <h3>Question {{i + 1}}</h3>
+
+            <h5>{{item.question}}</h5>
+            <ion-row radio-group>
+                <ion-col col-12>
+                    <ion-list no-lines radio-group formControlName="pick">
+
+                        <ion-item>
+
+                            <ion-label>a. {{item.a}}</ion-label>
+                            <ion-radio (click)="setradio('A',item.answer)" value="A" required ngDefaultControl></ion-radio>
+
+                        </ion-item>
+
+                        <ion-item>
+
+                            <ion-label>b. {{item.b}}</ion-label>
+                            <ion-radio (click)="setradio('B',item.answer)" value="B" required ngDefaultControl></ion-radio>
+
+                        </ion-item>
+
+                        <ion-item>
+
+                            <ion-label>c. {{item.c}}</ion-label>
+                            <ion-radio (click)="setradio('C',item.answer)" value="C" required ngDefaultControl></ion-radio>
+
+                        </ion-item>
+                        <ion-item>
+
+                            <ion-label>d. {{item.d}}</ion-label>
+                            <ion-radio (click)="setradio('D',item.answer)" value="D" required ngDefaultControl></ion-radio>
+
+                        </ion-item>
+                    </ion-list>
+                </ion-col>
+            </ion-row>
+        </div>
+        <div padding>
+            <button click ion-button color="primary">End Exam</button>
+        </div>
+    </form>
+
+</ion-content>

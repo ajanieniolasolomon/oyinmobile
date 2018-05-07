@@ -1,0 +1,40 @@
+<ion-content padding>
+    <ion-row class="logo-row">
+
+        <ion-col width-67>
+            <img src="https://mdbootstrap.com/img/Photos/Others/images/86.jpg" />
+        </ion-col>
+
+    </ion-row>
+    <div class="login-box">
+
+        <form (ngSubmit)="onSubmit(formgroup)" [formGroup]="formgroup">
+
+            <ion-list>
+
+                <ion-item>
+                    <ion-label floating>Email</ion-label>
+                    <ion-input type="text" formControlName="email"></ion-input>
+                </ion-item>
+                <ion-item *ngIf="email.hasError('email') && email.touched">
+                    <p>* Email Incorrect</p>
+                </ion-item>
+
+                <ion-item>
+                    <ion-label floating>Password</ion-label>
+                    <ion-input type="password" formControlName="password"></ion-input>
+                </ion-item>
+                <ion-item *ngIf="password.hasError('required') && password.touched">
+                    <p>* Password Field is reqired</p>
+                </ion-item>
+
+            </ion-list>
+            <ion-row>
+                <ion-col class="signup-col">
+                    <button ion-button color="primary" block [disabled]="formgroup.invalid">Sign In</button>
+                </ion-col>
+            </ion-row>
+        </form>
+
+    </div>
+</ion-content>
